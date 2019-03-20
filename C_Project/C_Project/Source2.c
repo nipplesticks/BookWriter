@@ -23,26 +23,33 @@ void WriteSentence(Vector * v);
 
 void sortByFreq(Vector * v);
 
+
+#define NUMBER_OF_BOOKS 7
+
 int main(int argc, char * argv[])
 {
-	srand(time(0));
-	Vector books[4];
 
-	for (int i = 0; i < 4; i++)
+	srand(time(0));
+	Vector books[NUMBER_OF_BOOKS];
+
+	for (int i = 0; i < NUMBER_OF_BOOKS; i++)
 	{
 		books[i] = NewVector();
 		books[i].Create(&books[i], sizeof(char) * 256);
 	}
 
-	LoadBook(&books[0], "Assets/Book1.txt");
-	LoadBook(&books[1], "Assets/Book2.txt");
-	LoadBook(&books[2], "Assets/Book3.txt");
-	LoadBook(&books[3], "Assets/Book4.txt");
+	LoadBook(&books[0], "Assets/Thermodynamics.txt");
+	LoadBook(&books[1], "Assets/Book1.txt");
+	LoadBook(&books[2], "Assets/Book2.txt");
+	LoadBook(&books[3], "Assets/Book3.txt");
+	LoadBook(&books[4], "Assets/Book4.txt");
+	LoadBook(&books[5], "Assets/Book5.txt");
+	LoadBook(&books[6], "Assets/BoringText.txt");
 
 	Vector allWords = NewVector();
 	allWords.Create(&allWords, sizeof(Word));
 
-	for (int bookType = 0; bookType < 4; bookType++) // All books
+	for (int bookType = 0; bookType < NUMBER_OF_BOOKS; bookType++) // All books
 	{
 		for (int vecIndex = 0; vecIndex < books[bookType].Size; vecIndex++) //All words in the current book
 		{
@@ -124,7 +131,7 @@ int main(int argc, char * argv[])
 		printf("\n");
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < NUMBER_OF_BOOKS; i++)
 	{
 		books[i].Free(&books[i]);
 	}

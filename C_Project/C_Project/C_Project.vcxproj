@@ -115,7 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="Assets\Text1.txt" />
+    <Text Include="Assets\Book5.txt" />
     <Text Include="Text.txt" />
   </ItemGroup>
   <ItemGroup>
